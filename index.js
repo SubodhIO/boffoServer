@@ -175,7 +175,7 @@ const triggerPushMsg = function(subscription, dataToSend) {
       console.log("*** List of Subscriptions *** ");
       console.log(JSON.stringify(response.data));
 
-      var dataToSend = "Test Notification From Boffo";
+      //var dataToSend = "Test Notification From Boffo";
       var subscriptionObj = {};
 
       response.data.forEach( function(row) {
@@ -299,9 +299,33 @@ app.get("/api/add-subscription", function(req, res) {
   console.log("***" + userId + "/***" + subscription);
 });
 
-app.get("/api/send-notification", function(req, res) {
+app.get("/api/notification/test", function(req, res) {
   console.log("*** SERVER LOG | SEND **** " + req);
-  triggerPushMsg("", "");
+  triggerPushMsg("", "Test Notification");
+  res.send("Success");
+});
+
+app.get("/api/notification/new-event",function(req,res){
+  console.log("*** SERVER LOG | SEND **** " + req);
+  triggerPushMsg("", "New Event Created");
+  res.send("Success");
+});
+
+app.get("/api/notification/new-poll",function(req,res){
+  console.log("*** SERVER LOG | SEND **** " + req);
+  triggerPushMsg("", "New Poll Created");
+  res.send("Success");
+});
+
+app.get("/api/notification/new-query",function(req,res){
+  console.log("*** SERVER LOG | SEND **** " + req);
+  triggerPushMsg("", "New Query Posted");
+  res.send("Success");
+});
+
+app.get("/api/notification/new-proposal",function(req,res){
+  console.log("*** SERVER LOG | SEND **** " + req);
+  triggerPushMsg("", "New Proposal added");
   res.send("Success");
 });
 
