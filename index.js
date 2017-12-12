@@ -10,7 +10,7 @@ http.post = require("http-post");
 
 // set content-type header and data as json in args parameter
 var args = {
-  data: { username: "admin", password: "sreenivt" },
+  data: { username: "admin", password: "c2vc1970aeS" },
   headers: { "Content-Type": "application/json" }
 };
 
@@ -18,7 +18,7 @@ var app = express();
 var sessionId = -99;
 
 const PORT = process.env.PORT || 5000;
-const SERVER_URL = "http://om.cloudio.io:9180/api";
+const SERVER_URL = "https://komori.cloudio.io/api";
 
 const vapidKeys = {
   publicKey:
