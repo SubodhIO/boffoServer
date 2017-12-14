@@ -262,7 +262,7 @@ app.get("/testcertificate",function(req,res){
 app.get("/api/login", function(req, res) {
   console.log("*** SERVER LOG | LOGIN **** ");
   getSessionId().then(function(response) {
-    res.send("API *** LOGIN PROMISE RETURNED | " + response);
+    res.send({"message":"API *** LOGIN PROMISE RETURNED | " + response});
   });
 });
 
@@ -270,10 +270,10 @@ app.get("/api/load", function(req, res) {
   console.log("*** LOAD LOG | START **** ");
   queryDS("BFOUsers").then(
     function(response) {
-      res.send("LOAD *** LOAD PROMISE RETURNED | " + response);
+      res.send({"message":"LOAD *** LOAD PROMISE RETURNED | " + response});
     },
     function(err) {
-      res.send("LOAD *** LOAD PROMISE ERROR | " + err);
+      res.send({"message":"LOAD *** LOAD PROMISE ERROR | " + err});
     }
   );
 });
@@ -283,10 +283,10 @@ app.get("/api/insert", function(req, res) {
   console.log("*** INSERT LOG | START **** ");
   insertDS("BFOUsers").then(
     function(response) {
-      res.send("INSERT *** INSERT PROMISE RETURNED | " + response);
+      res.send({"message":"INSERT *** INSERT PROMISE RETURNED | " + response});
     },
     function(err) {
-      res.send("INSERT *** INSERT PROMISE ERROR | " + err);
+      res.send({"message":"INSERT *** INSERT PROMISE ERROR | " + err});
     }
   );
 });
@@ -296,7 +296,7 @@ app.get("/api", function(req, res) {
 });
 
 app.get("/api/add-subscription", function(req, res) {
-  res.send("will send the Notifications");
+  res.send({"message":"will send the Notifications"});
   console.log("*** SERVER LOG | ADD USER **** ");
 
   var userId = req.body.userId;
@@ -308,36 +308,36 @@ app.get("/api/add-subscription", function(req, res) {
 app.get("/api/notification/test", function(req, res) {
   console.log("*** SERVER LOG | SEND **** " + req);
   triggerPushMsg("", "Test Notification");
-  res.send("Success");
+  res.send({"message":"Success"});
 });
 
 app.get("/api/notification/new-event",function(req,res){
   console.log("*** SERVER LOG | SEND **** " + req);
   triggerPushMsg("", "New Event Created");
-  res.send("Success");
+  res.send({"message":"Success"});
 });
 
 app.get("/api/notification/new-poll",function(req,res){
   console.log("*** SERVER LOG | SEND **** " + req);
   triggerPushMsg("", "New Poll Created");
-  res.send("Success");
+  res.send({"message":"Success"});
 });
 
 app.get("/api/notification/new-query",function(req,res){
   console.log("*** SERVER LOG | SEND **** " + req);
   triggerPushMsg("", "New Query Posted");
-  res.send("Success");
+  res.send({"message":"Success"});
 });
 
 app.get("/api/notification/new-proposal",function(req,res){
   console.log("*** SERVER LOG | SEND **** " + req);
   triggerPushMsg("", "New Proposal added");
-  res.send("Success");
+  res.send({"message":"Success"});
 });
 
 app.get("/api/testpost",function(req,res){
   console.log('**** '+JSON.stringify(server.address()));
-  res.send(""+JSON.stringify(server.address()));
+  res.send({"message":""+JSON.stringify(server.address())});
 });
 
 
