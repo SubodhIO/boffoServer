@@ -252,7 +252,13 @@ var port = server.address().port;
 app.get("/", function(req, res) {
   res.redirect("pages/index.html");
 });
+app.get("/.well-known/acme-challenge/6DeU-NImvrP3PXmRsMbzWhjxOrQSMNjHF5vGAFIxd8M",function(req,res){
+  res.redirect("/pages/file");
+});
 
+app.get("/testcertificate",function(req,res){
+  res.redirect("/pages/file");
+});
 app.get("/api/login", function(req, res) {
   console.log("*** SERVER LOG | LOGIN **** ");
   getSessionId().then(function(response) {
