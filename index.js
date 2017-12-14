@@ -93,7 +93,7 @@ var queryDS = function(dsName) {
       var payload = {
         sessionId: sessionId,
         offset: 0,
-        limit: 20,
+        limit: 200,
         params: { executeCountSql: "N" },
         data: {}
       };
